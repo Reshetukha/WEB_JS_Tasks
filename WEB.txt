@@ -1,0 +1,238 @@
+function isEmpty(obj) {
+  for (var key in obj) {
+    return false;
+  }
+  return true;
+}
+
+------------------
+
+
+var arr=[];
+
+for (let i = 0; i < 1000; i++){
+	arr[i] = i;
+}
+
+var simple = [1, 2, 3, 5, 7];
+
+for( let i = 1; i < 1000; i ++ ){
+	let tmp = simple[1]*i;
+	arr[tmp] = null;
+	if(tmp > 1000){
+		break;
+    }
+}
+
+
+for( let j = 1; j < simple.length; j++ ){
+    for( let i = 1; i < 1000; i++ ){
+        let tmp = simple[j]*i;
+        arr[tmp] = null;
+        if(tmp >= 1000){
+            break;
+        }
+    }
+}
+
+
+----------------
+
+var simple = [1]
+
+var arr=[];
+
+for (let i = 0; i < 1000; i++){
+	arr[i] = i;
+}
+
+
+var nextSimple = function(){
+	let start = simple[simple.length-1] + 1;
+	if (arr[start] != null){
+        for(let i = 2; i * start < 1000; i++){
+            arr[i * start] = null;
+        }
+		return start;
+    } else {
+	return nextSimple();
+    }
+}
+
+simple[simple.length] = nextSimple();
+
+
+-------------------
+simple[simple.length] = nextSimple(simple.length);
+-------------------
+
+---SIMPE NUMBERS---
+
+var simple = [1]
+
+var arr=[];
+
+for (let i = 0; i < 1000; i++){
+	arr[i] = i;
+}
+
+var nextSimple = function(start){
+	for(start = start + 1; start < 1000; start++){
+        if (arr[start] != null){
+            for(let i = 1; i * start < 1000; i++){
+                arr[i * start] = null;
+            }
+            return start;
+        }
+    }
+}
+
+while ( (temp = nextSimple(simple.length)) != null ){
+
+	simple[simple.length] = temp;
+
+}
+
+var sum = 0;
+
+for( let i = 0; i < simple.length; i++ ){
+	sum += simple[i];
+}
+
+console.log("Кол-во простых чисел: " + simple.length);
+console.log("SUM = " + sum);
+
+------------------
+
+---Positive Sum:
+
+arr = [1, -2, 3, 4, -9, 6]//14
+arr = [-1, 2, 3, -9, 11]//16
+
+var sumPositive = arr =>{
+	let myLength = arr.length;
+	let mysum = 0;
+	for ( let i = 0; i < arr.length; i++ ){
+		if(arr[i] > 0){
+			mysum = mysum + arr[i];
+           }
+    }
+	return mysum;
+}
+
+-----------------
+
+«my-short-string» в «myShortString»
+
+var camelize = str =>{
+	var myarray = str.split("-");
+	for ( let i = 0; i < myarray.length; i++ ){
+		myarray[i][0] = myarray[i].charAt(0).toUpperCase();
+    }
+	return myarray;
+}
+
+
+???????????????????????????????????????????
+
+var abc = ["a", "sd", "gasd"];
+
+abc[0][0] = abc[0][0].toUpperCase();
+
+"A"
+
+abc
+
+["a", "sd", "gasd"]
+
+???????????????????????????????????????????
+
+------------------------
+
+arr = [5, 3, 8, 1]
+
+var filterRangeInPlace = (arr, leftrange, rightrange) => {
+	for ( let i = arr.length -1; i >= 0; i-- ){
+		if ( arr[i] < leftrange || arr[i] > rightrange){
+				arr.splice(i, 1);
+            }
+    }
+}
+
+filterRangeInPlace(arr, 2, 7)
+
+------------------------
+
+var arr = [5, 2, 1, -10, 8]
+
+undefined
+
+
+arr
+[5, 2, 1, -10, 8]
+
+arr.sort();
+
+[-10, 1, 2, 5, 8]
+
+arr.reverse();
+
+[8, 5, 2, 1, -10]
+
+------------------------
+
+var arr = ["HTML", "JavaScript", "CSS"]
+
+undefined
+
+
+arr
+["HTML", "JavaScript", "CSS"]
+arr.toString()
+"HTML,JavaScript,CSS"
+
+----------------
+
+var vasya = { name: "Вася", age: 23 };
+var masha = { name: "Маша", age: 18 };
+var vovochka = { name: "Вовочка", age: 6 };
+var people = [ vasya , masha , vovochka ];
+
+var sortByAge = mypeople => {
+	for ( let j = 0; j < mypeople.length; j++ ){
+		for ( let i = 0; i < mypeople.length -1; i++){
+          	  if ( mypeople[i].age > mypeople[i+1].age){
+          	      let tempppl = mypeople[i+1];
+          	      mypeople[i+1] = mypeople[i];
+                mypeople[i] = tempppl;
+         		   }
+        	}
+	}
+}
+
+sortByAge(people);
+
+------------------
+
+var arr = ["Есть", "жизнь", "на", "Марсе"];
+var arrLength = [];
+for (var i = 0; i < arr.length; i++) {
+	arrLength[i] = arr[i].length;
+}
+alert( arrLength );
+-->
+
+var arr = ["Есть", "жизнь", "на", "Марсе"];
+var arrLength = [];
+
+var mylength = element => {
+	return element.length;
+}
+
+arrLength = arr.map(mylength);
+
+[4, 5, 2, 5]
+
+
+-------------------
+

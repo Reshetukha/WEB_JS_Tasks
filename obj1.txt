@@ -1,0 +1,13 @@
+var menu;
+
+menu = {
+name: "Вася"
+};
+
+menu.surname = "petrov";
+
+menu
+
+menu.name = "sergey";
+
+delete menu.name;

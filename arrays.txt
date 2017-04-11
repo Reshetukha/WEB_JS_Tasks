@@ -1,0 +1,32 @@
+var goods = [ "1", "2", "3", "4" ]
+
+var last = goods[goods.length -1]
+
+---
+
+goods[goods.length -1] = "PC"
+
+
+goods
+["1", "2", "3", "PC"]
+
+---
+
+var styles = ["Джаз", "Блюз"]
+styles[styles.length] = "Рок-н-Рол"
+styles[styles.length - 2] = "Классика"
+alert(styles.splice(0, 1));
+
+styles.unshift("Рэп", "Рэгги"); - добавить вначале массива
+shift - удалить вначале массива
+pop - удалить с конца массива,
+push - Добавить в конец массива,
+
+
+-----------------------------
+zadacha 4
+-----------------------------
+
+var arr = [1, 2, 3]; var arr2 = arr;arr2[0] = 5; alert( arr[0] );alert( arr2[0] );
+
+5  5
